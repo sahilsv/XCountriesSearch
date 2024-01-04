@@ -16,16 +16,22 @@ function App() {
     }
   }
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   const { name, value } = e.target;
 
-    const filteredData = data.filter((country) =>
-      country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  //   const filteredData = data.filter((country) =>
+  //     country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
 
-    setData(filteredData);
-  };
+  //   setData(filteredData);
+  // };
+
+  const filteredCountries = data
+    ? data.filter((country) =>
+        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   useEffect(() => {
     fetchData();
@@ -34,17 +40,17 @@ function App() {
   return (
     <div className="container">
       <div className="search-bar">
-        <form onSubmit={handleSearch}>
+        
           <input
             type="text"
             value={searchTerm}
             placeholder="Search for countries..."
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-        </form>
+
       </div>
       <div className="country-container">
-        {data.map((country) => {
+        {filteredCountries.map((country) => {
           return (
             <div key={country.cca3} className="card">
               <img
