@@ -59,7 +59,7 @@ function App() {
                 width={100}
                 height={100}
               />
-              <span>{country.name.common}</span>
+              <span><p>{country.name.common}</p></span>
             </div>
           );
         })}
