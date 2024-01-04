@@ -32,8 +32,8 @@ input {
 }
 
 .card {
-  height: 130px;
-  width: 125px;
+  height: 150px;
+  width: 249px;
   font-weight: 600;
   display: flex;
   flex-direction: column;
