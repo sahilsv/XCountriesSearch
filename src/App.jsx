@@ -16,17 +16,6 @@ function App() {
     }
   }
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   const { name, value } = e.target;
-
-  //   const filteredData = data.filter((country) =>
-  //     country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-
-  //   setData(filteredData);
-  // };
-
   const filteredCountries = data
     ? data.filter((country) =>
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
@@ -55,7 +44,7 @@ function App() {
             <div key={country.cca3} className="card">
               <img
                 src={country.flags.png}
-                alt="country-flag"
+                alt={`Flag of ${country.name.common}`}
                 width={100}
                 height={100}
               />
